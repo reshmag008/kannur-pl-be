@@ -264,6 +264,18 @@ async function updateUnSold(){
 
 }
 
+async function displayTeamScores(){
+    return new Promise(async (resolve, reject) => {
+        try {
+            global.io.to(roomId).emit('display_team_scores')
+            resolve('success')
+        }catch(e){
+            console.log("error occured in displayPlayer= ", e);
+            reject(e);
+        }
+    })
+}
+
 
 
 
@@ -278,5 +290,6 @@ module.exports = {
     getSoldPlayers : getSoldPlayers,
     teamComplete :teamComplete,
     updateUnSold:updateUnSold,
-    closePopup:closePopup
+    closePopup:closePopup,
+    displayTeamScores :displayTeamScores
 };

@@ -145,6 +145,12 @@ router.post('/player_display', bodyParser.json(),(req, res) => {
     .catch((err) => res.status(500).json(err))
 });
 
+router.post('/display_team_scores', bodyParser.json(),(req, res) => {
+    playerService.displayTeamScores()
+    .then((result) => res.status(200).json(result))
+    .catch((err) => res.status(500).json(err))
+});
+
 router.post('/team_call', bodyParser.json(),(req, res) => {
     console.log(req.body)
     playerService.teamCall(req.body)
