@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const models = require("./models");
+const path = require('path');
 
 require("./config/db_connection");
 
@@ -24,6 +25,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(express.static('public'))
 
 /* =======================
    MIDDLEWARE

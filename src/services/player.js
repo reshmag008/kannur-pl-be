@@ -115,7 +115,7 @@ async function getPlayers(params){
         try {
             let players =[];
             if(params.id){
-                players = await models.players.findAll({where :{team_id : id}});
+                players = await models.players.findAll({where :{team_id : params.id},order: [["updatedAt", "DESC"]]});
             }else{
                 players = await models.players.findAll({ 
                     limit : Number(params.limit),
